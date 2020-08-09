@@ -6,7 +6,7 @@ const app = express();
 
 app.get('/api/transactions', (req, res) => {
     
-  axios.get(`http://127.0.0.1:8000/api/transactions`, services.createToken(req.headers.authorization))
+  axios.get(`http://127.0.0.1:5000/api/transactions`, services.createToken(req.headers.authorization))
   .then(response => res.json(response.data))
   .catch(e => {
       console.log(e);
@@ -16,7 +16,7 @@ app.get('/api/transactions', (req, res) => {
 
 app.post('/api/balance', (req, res) => {
   
-  axios.post(`http://127.0.0.1:8000/api/balance`, {
+  axios.post(`http://127.0.0.1:5000/api/balance`, {
     identification: req.body.identification,
     telephone: req.body.telephone
   },
@@ -30,7 +30,7 @@ app.post('/api/balance', (req, res) => {
 
 app.post('/api/credit', (req, res) => {
 
-  axios.post(`http://127.0.0.1:8000/api/credit`, {
+  axios.post(`http://127.0.0.1:5000/api/credit`, {
     identification: req.body.identification,
     telephone: req.body.telephone,
     amount: req.body.amount,
@@ -46,7 +46,7 @@ app.post('/api/credit', (req, res) => {
 
 app.post('/api/debit', (req, res) => {
 
-  axios.post(`http://127.0.0.1:8000/api/debit`, {
+  axios.post(`http://127.0.0.1:5000/api/debit`, {
     identification: req.body.identification,
     telephone: req.body.telephone,
     amount: req.body.amount,
@@ -62,7 +62,7 @@ app.post('/api/debit', (req, res) => {
 
 app.post('/api/payment', (req, res) => {
 
-  axios.post(`http://127.0.0.1:8000/api/payment`, {
+  axios.post(`http://127.0.0.1:5000/api/payment`, {
     token: req.body.token
   }, 
   services.createToken(req.headers.authorization)

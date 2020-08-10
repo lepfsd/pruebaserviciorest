@@ -14,6 +14,16 @@ app.get('/api/transactions', (req, res) => {
 
 });
 
+app.get('/api/transactions/:id', (req, res) => {
+    
+  axios.get(`http://127.0.0.1:5000/api/transactions/${req.params.id}`, services.createToken(req.headers.authorization))
+  .then(response => res.json(response.data))
+  .catch(e => {
+      console.log(e);
+  });
+
+});
+
 app.post('/api/balance', (req, res) => {
   
   axios.post(`http://127.0.0.1:5000/api/balance`, {

@@ -7,14 +7,14 @@ const app = express();
 app.post('/api/auth/login', (req, res) => {
   
     console.log(req.body.email);
-    /*axios.post(`http://127.0.0.1:5000/api/auth/login`, {
+    axios.post(`http://127.0.0.1:5000/api/auth/login`, {
         email: req.body.email,
         password: req.body.password
     })
     .then(response => res.json(response.data))
     .catch(e => {
         console.log(e);
-    });*/
+    });
 
 });
 
